@@ -3,7 +3,6 @@ from flask import Flask, send_file, request
 from io import BytesIO
 
 app = Flask(__name__)
-app = Flask(__name__)
 
 @app.route('/downloadTrailer', methods=['GET'])
 def downloadTrailer():
@@ -24,7 +23,7 @@ def downloadTrailer():
         return send_file(
             buffer,
             as_attachment=True,
-            attachment_filename=(url.title+".mp4"),
+            download_name=(url.title+".mp4"),
             mimetype="video/mp4",
         )
     else:
